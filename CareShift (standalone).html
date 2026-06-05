@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CareShift — Fixing the nursing handoff</title>
+<meta name="description" content="A mission to fix the nursing handoff — built with nurses, not at them." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400;1,14..32,500;1,14..32,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<meta name="ext-resource-dependency" content="https://bloom42-media.s3.eu-central-1.amazonaws.com/nurse.mp4" data-resource-id="heroVideo" />
+<meta name="ext-resource-dependency" content="https://bloom42-media.s3.eu-central-1.amazonaws.com/nurse-report.webp" data-resource-id="photoReport" />
+<meta name="ext-resource-dependency" content="https://bloom42-media.s3.eu-central-1.amazonaws.com/nurses-rush.webp" data-resource-id="photoRush" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="CareShift home">
+      <img src="assets/careshift-logo.png" alt="CareShift logo" />
+      <b>CareShift</b>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#reality">The problem</a>
+      <a href="#mission">Our mission</a>
+      <a href="#voices">Voices</a>
+    </nav>
+    <div class="nav__cta">
+      <a class="btn btn--primary" href="#stay">Stay updated</a>
+      <button class="btn btn--ghost nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero__media">
+    <!-- ▼▼▼ ADD YOUR VIDEO: paste your CDN URL into both src and (optionally) poster ▼▼▼ -->
+    <video class="hero__video js-video" id="heroVideo"
+           autoplay muted loop playsinline preload="metadata"
+           poster=""
+           data-res="heroVideo"
+           data-src="https://bloom42-media.s3.eu-central-1.amazonaws.com/nurse.mp4">
+      <!-- Example once your CDN is ready:
+           data-src="https://cdn.yoursite.com/nurse-shift.mp4"
+           poster="https://cdn.yoursite.com/nurse-shift-poster.jpg" -->
+    </video>
+    <!-- ▲▲▲ shown only until a video src is added ▲▲▲ -->
+    <div class="media-ph" id="heroPlaceholder"></div>
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <svg class="hero__pulse" viewBox="0 0 1600 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 45 H540 l22 -30 18 60 22 -78 20 96 18 -48 24 0 H720 l16 -20 14 40 16 -50 14 30 H1600" />
+  </svg>
+  <div class="hero__inner">
+    <div class="hero__content reveal">
+      <h1>You became a nurse to care for people — <em>not to chase down a handoff.</em></h1>
+      <p class="hero__sub">CareShift is a mission to fix the most fragile moment in healthcare: shift change. We're nurses, doctors, and engineers building a safer handoff — with nurses, not at them.</p>
+      <div class="hero__actions">
+        <a class="btn btn--hero-primary" href="#stay">Stay updated <span class="btn__arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--hero-frost" href="#reality">See what we're fixing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="group group--soft">
+
+<!-- ============ THE REALITY ============ -->
+<section class="section" id="reality" aria-labelledby="reality-h">
+  <div class="wrap">
+    <div class="reality__head reveal">
+      <p class="eyebrow">The reality</p>
+      <h2 id="reality-h">You know this shift. You've lived it a thousand times.</h2>
+      <p class="lede" style="margin-top:18px">The handoff is where care is supposed to pass safely from one set of hands to the next. Too often, it's ninety rushed seconds, a scribbled note, and the quiet fear that something got left behind.</p>
+    </div>
+
+    <div class="bento">
+      <figure class="btile btile--photo reveal">
+        <!-- ADD A PHOTO: paste your image URL into data-img below -->
+        <div class="media-ph reality__img" data-res="photoReport" data-img="https://bloom42-media.s3.eu-central-1.amazonaws.com/nurse-report.webp"></div>
+      </figure>
+
+      <div class="btile btile--navy btile--emph reveal" data-d="1">
+        <p class="btile__big">What gets lost isn&rsquo;t always in the chart.<br><span class="t-teal">It&rsquo;s the pattern.</span></p>
+        <p class="btile__sub">The signals a seasoned nurse catches before the monitor does — a change in affect, a tense family, the early edge of deterioration.</p>
+      </div>
+
+      <blockquote class="btile btile--quote btile--lead a-q1 reveal" data-d="2">
+        <p>The one thing that mattered was buried three paragraphs into a wall of text nobody had time to read.</p>
+        <cite>&mdash; critical detail, lost in the noise</cite>
+      </blockquote>
+
+      <blockquote class="btile btile--navy a-q2 reveal" data-d="3">
+        <p>&ldquo;Follow up on the labs.&rdquo; By who? By when? No owner, no deadline &mdash; so it falls to whoever remembers.</p>
+        <cite>&mdash; the action item with no name on it</cite>
+      </blockquote>
+
+      <blockquote class="btile btile--quote a-q3 reveal" data-d="1">
+        <p>I was nodding along to report while mentally triaging the other seven patients waiting for me.</p>
+        <cite>&mdash; receiving report you can&rsquo;t fully hear</cite>
+      </blockquote>
+
+      <blockquote class="btile btile--navy a-q4 reveal" data-d="2">
+        <p>&ldquo;Something&rsquo;s off with bed 12.&rdquo; I knew it in my gut &mdash; but there&rsquo;s no field on the form for a feeling.</p>
+        <cite>&mdash; the instinct that never gets handed off</cite>
+      </blockquote>
+
+      <blockquote class="btile btile--quote a-q5 reveal" data-d="3">
+        <p>By 7 a.m. my brain is holding forty patients&rsquo; worth of detail &mdash; and praying I pass on the right ten percent.</p>
+        <cite>&mdash; the mental load at shift change</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ A DAY ON THE FLOOR ============ -->
+<section class="section day-cine" aria-labelledby="day-h">
+  <figure class="day-cine__frame reveal">
+    <!-- ADD A PHOTO: paste your image URL into data-img below -->
+    <div class="media-ph day-cine__ph" data-res="photoRush" data-img="https://bloom42-media.s3.eu-central-1.amazonaws.com/nurses-rush.webp"></div>
+    <div class="day-cine__scrim" aria-hidden="true"></div>
+    <figcaption class="day-cine__content">
+      <p class="eyebrow">A day on the floor</p>
+      <h2 id="day-h" class="day-cine__title"><span class="t-heavy">0645. The shift is</span> <span class="t-light">changing.</span></h2>
+      <p class="day-cine__lead">At 0645 a nurse doesn't need software telling her what to think. She needs to know what changed overnight, who's watching what, and what happens if the patient in room 4 does the thing he did at 0200. She needs it fast, structured so nothing falls through, and confirmed — so the next shift isn't running on memory and hope.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ============ WHY IT MATTERS ============ -->
+<section class="section" id="why" aria-labelledby="matters-h">
+  <div class="wrap">
+    <div class="matters__head reveal">
+      <p class="eyebrow">Why it matters</p>
+      <h2 id="matters-h">When the handoff breaks, patients and nurses both pay.</h2>
+      <p class="lede">This isn't about efficiency. It's about safety at the bedside and the people we ask to carry it. A few numbers, quietly — with room to add the sources behind them.</p>
+    </div>
+    <div class="why__stats">
+      <figure class="bigstat reveal">
+        <div class="ring ring--lg">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="ring__track" cx="50" cy="50" r="45"></circle>
+            <circle class="ring__fg" cx="50" cy="50" r="45" pathLength="100" style="--off:20"></circle>
+          </svg>
+          <span class="ring__num num" data-to="80" data-suffix="%">80%</span>
+        </div>
+        <figcaption class="bigstat__label">of serious medical errors involve miscommunication during a patient handoff.<sup>1</sup></figcaption>
+      </figure>
+
+      <ul class="ministats">
+        <li class="ministat reveal" data-d="1">
+          <div class="ring ring--sm">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="ring__track" cx="50" cy="50" r="45"></circle>
+              <circle class="ring__fg" cx="50" cy="50" r="45" pathLength="100" style="--off:33"></circle>
+            </svg>
+            <span class="ring__num num" data-to="67" data-suffix="%">67%</span>
+          </div>
+          <p class="ministat__label">of communication errors are tied to handoffs between caregivers.<sup>2</sup></p>
+        </li>
+        <li class="ministat reveal" data-d="2">
+          <div class="ring ring--sm">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="ring__track" cx="50" cy="50" r="45"></circle>
+              <circle class="ring__fg" cx="50" cy="50" r="45" pathLength="100" style="--off:50"></circle>
+            </svg>
+            <span class="ring__num num" data-to="50" data-suffix="%">50%</span>
+          </div>
+          <p class="ministat__label">of hospital staff say important patient information is often lost at shift change.<sup>3</sup></p>
+        </li>
+        <li class="ministat reveal" data-d="3">
+          <div class="ring ring--sm">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="ring__track" cx="50" cy="50" r="45"></circle>
+              <circle class="ring__fg" cx="50" cy="50" r="45" pathLength="100" style="--off:60"></circle>
+            </svg>
+            <span class="ring__num num" data-to="40" data-suffix="%">40%</span>
+          </div>
+          <p class="ministat__label">of a nurse's shift, on average, is spent on documentation instead of care.<sup>4</sup></p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="why__sources reveal">
+      <span><sup>1</sup> The Joint Commission, Sentinel Event Alert 58 — Inadequate handoff communication.</span>
+      <span><sup>2</sup> The Joint Commission Journal on Quality &amp; Patient Safety, 2024.</span>
+      <span><sup>3</sup> AHRQ Hospital Survey on Patient Safety Culture, 2011.</span>
+      <span><sup>4</sup> U.S. Surgeon General's Advisory on Building a Thriving Health Workforce, 2022.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR MISSION ============ -->
+<section class="section mission" id="mission" aria-labelledby="mission-h">
+  <div class="wrap mission__grid">
+    <div class="mission__main">
+      <p class="eyebrow reveal">Our mission</p>
+      <h2 id="mission-h" class="mission__title reveal">
+        <span class="t-light">Built by a clinician who</span>
+        <span class="t-heavy">watched the handoff fail</span>
+        <span class="t-accent">— in the same ways, every shift.</span>
+      </h2>
+      <p class="mission__para reveal" data-d="1">CareShift began with one nurse: twenty-plus years in neurorehabilitation — traumatic brain injury, spinal cord injury, disorders of consciousness — watching handoffs break down in predictable, preventable ways. Not from carelessness, but because the moment was never built for how nurses actually think.</p>
+
+      <blockquote class="founder-quote reveal" data-d="2">
+        <p>&ldquo;Not software replacing nursing judgment &mdash; software built to <em>transfer</em> it.&rdquo;</p>
+        <footer><span class="founder-quote__line"></span> The founder &middot; 20+ years in neurorehabilitation nursing</footer>
+      </blockquote>
+
+      <p class="mission__para reveal" data-d="2">So we built it the only way that made sense: with nurses, from the very first day. A dedicated group of experienced nurses worked alongside the developer from the beginning — defining what a handoff needs to carry, not validating a finished product handed to them at the end.</p>
+
+      <p class="faq-eyebrow eyebrow reveal" data-d="2">FAQ</p>
+      <ul class="roles faq reveal" data-d="3">
+        <li class="role faq__item">
+          <button type="button" class="faq__q" aria-expanded="false">
+            <span class="role__label">Is CareShift available to use yet?</span>
+            <svg class="role__arrow faq__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner"><p class="role__desc">Not yet. CareShift is in active development and currently being piloted with clinical teams. We're sharing the mission now and will have more to show in the coming weeks.</p></div></div>
+        </li>
+        <li class="role faq__item">
+          <button type="button" class="faq__q" aria-expanded="false">
+            <span class="role__label">Is this just another AI tool telling nurses what to do?</span>
+            <svg class="role__arrow faq__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner"><p class="role__desc">No. CareShift isn't built to replace nursing judgment — it's built to transfer it. The goal is to structure a handoff around how nurses already think, not to second-guess them.</p></div></div>
+        </li>
+        <li class="role faq__item">
+          <button type="button" class="faq__q" aria-expanded="false">
+            <span class="role__label">Were nurses actually involved in building it?</span>
+            <svg class="role__arrow faq__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner"><p class="role__desc">Yes. A dedicated group of experienced nurses worked alongside the team from the beginning, defining what a handoff needs to carry — not validating a finished product at the end.</p></div></div>
+        </li>
+        <li class="role faq__item">
+          <button type="button" class="faq__q" aria-expanded="false">
+            <span class="role__label">Who's behind CareShift?</span>
+            <svg class="role__arrow faq__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner"><p class="role__desc">It started with a clinician with 20+ years in neurorehabilitation nursing (traumatic brain injury, spinal cord injury, disorders of consciousness), who watched handoffs fail in predictable ways and set out to fix the moment itself.</p></div></div>
+        </li>
+        <li class="role faq__item">
+          <button type="button" class="faq__q" aria-expanded="false">
+            <span class="role__label">How can I follow along or get involved?</span>
+            <svg class="role__arrow faq__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq__a"><div class="faq__a-inner"><p class="role__desc">Join the mailing list to follow the build, and you're welcome to share your own handoff story — what gets lost at shift change and what you wish it carried.</p></div></div>
+        </li>
+      </ul>
+      <p class="mission__close reveal" data-d="3">This is a mission, not a pitch — and it's just beginning. <a href="#stay">Follow along as we build it.</a></p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ VALUES / MANIFESTO ============ -->
+<section class="section values" aria-labelledby="values-h">
+  <div class="wrap">
+    <div class="values__head reveal">
+      <p class="eyebrow">What we stand for</p>
+      <h2 id="values-h">A few things we won't compromise on.</h2>
+    </div>
+    <ol class="manifesto">
+      <li class="principle reveal" data-d="1">
+        <div class="principle__head">
+          <span class="principle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+        </div>
+        <h3 class="principle__title">Built with nurses, not at them</h3>
+        <p class="principle__text">Shaped by the people who live shift change every day.</p>
+      </li>
+
+      <li class="principle reveal" data-d="2">
+        <div class="principle__head">
+          <span class="principle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3"/>
+              <path d="M8 15a6 6 0 0 0 12 0v-3"/>
+              <path d="M11 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/>
+              <circle cx="20" cy="10" r="2"/>
+            </svg>
+          </span>
+        </div>
+        <h3 class="principle__title">The bedside comes first</h3>
+        <p class="principle__text">Less time on paperwork, more time with patients.</p>
+      </li>
+
+      <li class="principle reveal" data-d="1">
+        <div class="principle__head">
+          <span class="principle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </span>
+        </div>
+        <h3 class="principle__title">Nothing critical slips through</h3>
+        <p class="principle__text">The details that matter survive every handoff.</p>
+      </li>
+
+      <li class="principle reveal" data-d="2">
+        <div class="principle__head">
+          <span class="principle__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/>
+            </svg>
+          </span>
+        </div>
+        <h3 class="principle__title">Calm, not chaos</h3>
+        <p class="principle__text">Clarity at the most fragile moment in care.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="section voices" id="voices" aria-labelledby="voices-h">
+  <div class="wrap">
+    <div class="voices__head reveal">
+      <p class="eyebrow">Voices</p>
+      <h2 id="voices-h">Nurses and clinicians who believe in this mission.</h2>
+    </div>
+
+    <div class="feature reveal" id="voicesFeature" aria-live="polite">
+      <blockquote class="feature__quote" id="vQuote"></blockquote>
+      <div class="feature__person">
+        <span class="avatar feature__avatar" id="vAvatar"></span>
+        <span class="feature__meta">
+          <span class="feature__name" id="vName"></span>
+          <span class="feature__role" id="vRole"></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="feature__controls reveal" data-d="1">
+      <button type="button" class="feature__arrow" id="vPrev" aria-label="Previous voice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="feature__dots" id="vDots" role="tablist" aria-label="Choose a voice"></div>
+      <button type="button" class="feature__arrow" id="vNext" aria-label="Next voice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING CTA ============ -->
+<section class="section close" id="stay" aria-labelledby="close-h">
+  <div class="wrap close__grid">
+    <div class="close__intro">
+      <p class="eyebrow reveal">Join the mission</p>
+      <h2 id="close-h" class="close__title reveal">Be part of<br>fixing this.</h2>
+      <p class="close__lede reveal" data-d="1">No demos, no pitch. Just updates from a team of clinicians working to make shift change safer — and an open invitation to tell us how the handoff really feels on your floor.</p>
+    </div>
+
+    <div class="signup-card reveal" data-d="1">
+      <div class="signup-card__form" id="signupView">
+        <div class="field-row">
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" autocomplete="given-name" placeholder="Jordan" />
+          </div>
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" autocomplete="family-name" placeholder="Rivera" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" autocomplete="email" placeholder="you@hospital.org" aria-required="true" />
+        </div>
+        <div class="field">
+          <label for="role">Role <span class="opt">(optional)</span></label>
+          <div class="select-wrap">
+            <select id="role">
+              <option value="" disabled selected>Select your role</option>
+              <option value="nurse">Nurse</option>
+              <option value="physician">Physician</option>
+              <option value="other">Other</option>
+            </select>
+            <svg class="select-wrap__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="field">
+          <label for="story">Share your handoff story <span class="opt">(optional)</span></label>
+          <textarea id="story" placeholder="What gets lost at shift change — and what you wish it carried? We read every word."></textarea>
+        </div>
+        <p class="signup__error" id="signupError" role="alert"></p>
+        <button type="button" class="btn btn--teal-solid signup-card__submit" id="signupSubmit">Keep me posted</button>
+        <p class="signup__hint">We'll only use your email to share mission updates. No spam, ever.</p>
+      </div>
+      <div class="signup-card__done" id="signupDone" aria-live="polite">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Thank you for being part of this.</h3>
+        <p id="doneMsg">We'll keep you posted as the mission moves forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <a class="brand" href="#top" aria-label="CareShift home">
+          <image-slot id="footer-logo" class="foot__logo" shape="rounded" radius="10" fit="contain" placeholder="Drop logo"></image-slot>
+          <b>CareShift</b>
+        </a>
+        <p class="foot__tag">A mission to fix the nursing handoff — built with nurses, not at them.</p>
+      </div>
+      <div class="foot__cols">
+        <div class="foot__col">
+          <h4>Explore</h4>
+          <a href="#reality">The problem</a>
+          <a href="#mission">Our mission</a>
+          <a href="#voices">Voices</a>
+          <a href="#stay">Stay updated</a>
+        </div>
+        <div class="foot__col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@careshift.health">hello@careshift.health</a>
+          <a href="#stay">Share your story</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span>© 2026 CareShift. Made with care, for the people who give it.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/image-slot.js"></script>
+<script src="script.js"></script>
+
+<template id="__bundler_thumbnail" data-bg-color="#002058">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#002058"/>
+    <path d="M120 400 H470 l40 -150 55 300 50 -380 55 460 40 -230 60 0 H1080" fill="none" stroke="#1BA4AF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</template>
+</body>
+</html>
