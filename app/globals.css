@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CareShift — design tokens
+   Type: Inter (headlines + body/UI)
+   Color: navy #002058 · teal #1BA4AF · white · neutral grays
+   ============================================================ */
+@theme {
+  /* palette */
+  --color-navy: #002058;
+  --color-navy-700: #0a2f6e;
+  --color-navy-800: #001a48;
+  --color-navy-deep: #000d24;
+  --color-navy-raise: #062a63;
+  --color-navy-soft: #eef2f8;
+
+  --color-teal: #1ba4af;
+  --color-teal-ink: #0e6e76;
+  --color-teal-soft: #e7f4f5;
+  --color-teal-bright: #7fdce4;
+  --color-teal-glow: #8fe0e7;
+
+  --color-ink: #16202e;
+  --color-body: #485160;
+  --color-muted: #727b8a;
+  --color-line: #e7ebf0;
+  --color-line-soft: #eef1f5;
+  --color-soft: #f5f8fa;
+
+  /* on-dark text ramp */
+  --color-sky-100: #d5e2f1;
+  --color-sky-200: #c7d6ec;
+  --color-sky-300: #c3d0e6;
+  --color-sky-400: #aebfdc;
+  --color-sky-500: #9fb4d4;
+  --color-sky-600: #93a5c6;
+  --color-sky-700: #7d92b8;
+  --color-sky-800: #6f86ab;
+
+  /* radii */
+  --radius-cs-sm: 14px;
+  --radius-cs-md: 20px;
+  --radius-cs-lg: 28px;
+  --radius-cs-xl: 40px;
+  --radius-panel: clamp(28px, 3vw, 40px);
+
+  /* elevation */
+  --shadow-soft: 0 1px 2px rgba(0, 32, 88, 0.04), 0 4px 16px rgba(0, 32, 88, 0.05);
+  --shadow-mid: 0 2px 6px rgba(0, 32, 88, 0.06), 0 18px 48px rgba(0, 32, 88, 0.1);
+  --shadow-panel: 0 30px 70px -36px rgba(0, 8, 28, 0.6);
+  --shadow-cine: 0 44px 90px -44px rgba(0, 8, 28, 0.55);
+  --shadow-card: 0 40px 90px -40px rgba(0, 8, 28, 0.7);
+
+  /* breakpoints mirroring the original max-width queries */
+  --breakpoint-mini: 481px;
+  --breakpoint-tab: 761px;
+  --breakpoint-desk: 961px;
+
+  /* motion */
+  --animate-ekg: ekg 6.5s linear infinite;
+  --animate-blink: blink 1.6s ease-in-out infinite;
+  --animate-fadein: fadein 0.5s ease;
+
+  @keyframes ekg {
+    to {
+      stroke-dashoffset: -1600;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0.25;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  body {
+    background: var(--color-navy-deep);
+    color: var(--color-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (width >= 761px) {
+    body {
+      font-size: 18px;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-navy);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/* Content wrapper: max width + fluid gutter, used by every section. */
+@utility wrap {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 64px);
+}
+
+/* Same gutter as `wrap` but without the max-width clamp. */
+@utility gutter-x {
+  padding-inline: clamp(20px, 5vw, 64px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The EKG line reads as a static trace rather than vanishing at its end frame. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-pulse-path {
+    animation: none !important;
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+}
