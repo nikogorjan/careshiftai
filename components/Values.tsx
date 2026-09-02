@@ -1,83 +1,88 @@
-import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 
-type Principle = { title: string; text: string; icon: ReactNode };
+/* Empty waiting area with daylight: wide, calm, no people. */
+const PHOTO = "/empty-waiting-area.webp";
 
-const PRINCIPLES: Principle[] = [
+const PRINCIPLES = [
   {
     title: "Built with nurses, not at them",
     text: "Shaped by the people who live shift change every day.",
-    icon: (
-      <>
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </>
-    ),
   },
   {
     title: "The bedside comes first",
     text: "Less time on paperwork, more time with patients.",
-    icon: (
-      <>
-        <path d="M4.8 2.3A.3.3 0 1 0 5 2a.3.3 0 0 0-.2.3" />
-        <path d="M8 15a6 6 0 0 0 12 0v-3" />
-        <path d="M11 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
-        <circle cx="20" cy="10" r="2" />
-      </>
-    ),
   },
   {
     title: "Nothing critical slips through",
     text: "The details that matter survive every handoff.",
-    icon: (
-      <>
-        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-        <path d="m9 12 2 2 4-4" />
-      </>
-    ),
   },
   {
     title: "Calm, not chaos",
     text: "Clarity at the most fragile moment in care.",
-    icon: (
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
-    ),
   },
 ];
 
 export function Values() {
   return (
-    <section aria-labelledby="values-h" className="bg-tint py-20 lg:py-32">
+    <section aria-labelledby="values-h" className="bg-white pb-32">
+      {/* Header on white, above the photo. */}
       <div className="wrap">
-        <div className="mb-12 max-w-180 lg:mb-16">
-          <Eyebrow>What we stand for</Eyebrow>
-          <SectionHeading id="values-h">A few things we won&rsquo;t compromise on.</SectionHeading>
-        </div>
+        <Eyebrow>What we stand for</Eyebrow>
+        <SectionHeading id="values-h">
+          A few things we won&rsquo;t
+          <br />
+          compromise on.
+        </SectionHeading>
+      </div>
 
-        <ol className="m-0 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-4">
-          {PRINCIPLES.map((p) => (
-            <li key={p.title} className="rounded-lg border border-line bg-white p-8">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                className="h-6 w-6 text-accent"
+      {/* Full-bleed photo backdrop: natural color, sharp, nothing on top of it. */}
+      <div
+        role="img"
+        aria-label="An empty hospital waiting area with daylight"
+        className="mt-16 h-70 w-full bg-cover [background-position:center_40%] sm:h-100 lg:h-150"
+        style={{ backgroundImage: `url("${PHOTO}")` }}
+      />
+
+      {/* Four cards overlapping the bottom of the photo; card 01 anchors the row. */}
+      <div className="wrap">
+        <ol className="relative -mt-20 grid list-none grid-cols-1 gap-4 p-0 sm:-mt-30 sm:grid-cols-2 sm:*:min-h-60 lg:-mt-60 lg:grid-cols-4 lg:*:min-h-80">
+          {PRINCIPLES.map((p, i) => {
+            const dark = i === 0;
+            return (
+              <li
+                key={p.title}
+                className={cn(
+                  "m-0 flex flex-col rounded-lg p-10",
+                  dark ? "bg-ink" : "bg-[#e4f2f3]",
+                )}
               >
-                {p.icon}
-              </svg>
-              <h3 className="mt-5 mb-2 font-display text-xl leading-snug font-medium tracking-[-0.01em] text-balance text-ink">
-                {p.title}
-              </h3>
-              <p className="m-0 text-ink-2">{p.text}</p>
-            </li>
-          ))}
+                <p
+                  className={cn(
+                    "m-0 text-[13px] tabular-nums",
+                    dark ? "text-white" : "text-accent",
+                  )}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <div aria-hidden="true" className={cn("mt-3 h-px w-6", dark ? "bg-white/40" : "bg-accent")} />
+                <div className="mt-auto pt-6">
+                  <h3
+                    className={cn(
+                      "m-0 font-display text-[26px] leading-[1.15] font-normal tracking-[-0.015em]",
+                      dark ? "text-white" : "text-ink",
+                    )}
+                  >
+                    {p.title}
+                  </h3>
+                  <p className={cn("m-0 mt-3 text-[15px]", dark ? "text-white/80" : "text-ink-2")}>
+                    {p.text}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </section>
