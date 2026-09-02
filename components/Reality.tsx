@@ -41,7 +41,7 @@ const STEP = [
 
 export function Reality() {
   return (
-    <section id="reality" aria-labelledby="reality-h" className="bg-white section-y">
+    <section id="reality" aria-labelledby="reality-h" className="bg-white pt-[calc(var(--section-y)*2)] pb-(--section-y)">
       <div className="wrap">
         {/* Part 1: sticky header text left, tinted panel right. */}
         <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
