@@ -2,29 +2,20 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex cursor-pointer items-center gap-2.5 rounded-full border-[1.5px] border-transparent whitespace-nowrap " +
-  "text-base leading-none font-semibold no-underline transition-[transform,background,box-shadow,color,border-color] " +
-  "duration-[180ms] ease-out focus-visible:outline-none " +
-  "focus-visible:shadow-[0_0_0_3px_rgba(0,32,88,.55),0_0_0_6px_rgba(27,164,175,.9)] " +
-  "motion-reduce:hover:transform-none";
+  "inline-flex cursor-pointer items-center justify-center rounded-sm border border-transparent " +
+  "px-5 py-3 text-[15px] leading-none font-medium whitespace-nowrap no-underline " +
+  "transition-colors duration-150 " +
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
 const variants = {
-  primary:
-    "bg-navy px-6.5 py-3.5 text-white shadow-[0_6px_20px_rgba(0,32,88,.22)] hover:-translate-y-0.5 hover:bg-navy-700",
-  ghost:
-    "border-navy/20 bg-transparent px-6.5 py-3.5 text-navy hover:border-navy hover:bg-navy/5",
-  heroPrimary:
-    "min-h-[52px] border-white bg-white px-7 py-3.75 text-[1.02rem] text-navy " +
-    "shadow-[0_4px_14px_rgba(0,10,35,.18)] transition-[transform,box-shadow,background,border-color] duration-150 " +
-    "hover:-translate-y-0.5 hover:shadow-[0_9px_24px_rgba(0,10,35,.26)]",
-  heroFrost:
-    "relative min-h-[52px] overflow-hidden border border-white/20 bg-navy/40 px-7 py-3.75 text-[1.02rem] " +
-    "text-white shadow-[0_4px_14px_rgba(0,10,35,.18)] backdrop-blur-lg " +
-    "transition-[transform,box-shadow,background,border-color] duration-150 " +
-    "hover:-translate-y-0.5 hover:border-white/35 hover:bg-navy/55",
-  tealSolid:
-    "bg-teal px-6.5 py-3.5 font-bold text-[#00232c] hover:-translate-y-0.5 hover:bg-[#2bb6c1] " +
-    "hover:shadow-[0_10px_28px_rgba(27,164,175,.32)]",
+  /** Ink background, white text. The default call to action on light surfaces. */
+  primary: "bg-ink text-white hover:bg-accent-strong",
+  /** Transparent with a 1px ink border, for light surfaces. */
+  secondary: "border-ink bg-transparent text-ink hover:border-accent-strong hover:text-accent-strong",
+  /** Solid white, for use over photography and dark surfaces. */
+  onDark: "bg-white text-ink hover:bg-white/85",
+  /** Transparent with a white border, for use over photography and dark surfaces. */
+  onDarkSecondary: "border-white bg-transparent text-white hover:bg-white/10",
 } as const;
 
 type Variant = keyof typeof variants;

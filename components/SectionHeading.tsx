@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-/** The shared large heading scale used by every major section. */
+/** Section H2: large and light. 48px desktop, 32px mobile, weight 400. */
 export function SectionHeading({
   id,
   children,
@@ -15,7 +15,7 @@ export function SectionHeading({
     <h2
       id={id}
       className={cn(
-        "text-[clamp(2.1rem,4.3vw,3.35rem)] leading-[1.12] font-semibold tracking-[-0.01em] text-balance desk:leading-[1.15]",
+        "font-display text-[32px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-ink lg:text-[48px]",
         className,
       )}
     >

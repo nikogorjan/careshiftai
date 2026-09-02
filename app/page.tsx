@@ -15,18 +15,10 @@ export default function Home() {
       <Nav />
       <main id="top">
         <Hero />
-
-        {/*
-          Reality → Mission share one rounded white surface that curls up over
-          the hero, so they sit inside a single panel rather than four.
-        */}
-        <div className="relative z-[3] mx-[clamp(8px,1.5vw,20px)] mt-[clamp(-46px,-3.2vw,-28px)] overflow-hidden rounded-panel bg-white shadow-panel">
-          <Reality />
-          <DayOnTheFloor />
-          <WhyItMatters />
-          <Mission />
-        </div>
-
+        <Reality />
+        <DayOnTheFloor />
+        <WhyItMatters />
+        <Mission />
         <Values />
         <Voices />
         <ClosingCta />

@@ -1,22 +1,22 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-/** Small uppercase kicker that opens most sections. */
+/** Small uppercase kicker, always directly above a heading with a 16px gap. */
 export function Eyebrow({
   children,
-  tone = "ink",
+  tone = "accent",
   className,
 }: {
   children: ReactNode;
-  /** `ink` on light panels, `bright` on navy ones. */
-  tone?: "ink" | "bright";
+  /** `accent` on light surfaces, `onDark` over photos and dark surfaces. */
+  tone?: "accent" | "onDark";
   className?: string;
 }) {
   return (
     <p
       className={cn(
-        "mb-5 text-[0.72rem] font-semibold tracking-[0.22em] uppercase",
-        tone === "bright" ? "text-teal-bright" : "text-teal-ink",
+        "mb-4 text-[13px] font-medium tracking-[0.08em] uppercase",
+        tone === "onDark" ? "text-white/70" : "text-accent",
         className,
       )}
     >
