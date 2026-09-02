@@ -18,8 +18,8 @@ export default function Home() {
         <Reality />
         <DayOnTheFloor />
         <WhyItMatters />
-        <Mission />
         <Values />
+        <Mission />
         <Voices />
         <ClosingCta />
       </main>

@@ -9,8 +9,8 @@ import logo from "@/public/careshift-logo.png";
 const LINKS = [
   { href: "#reality", label: "The problem" },
   { href: "#why", label: "Why it matters" },
-  { href: "#mission", label: "Our mission" },
   { href: "#values", label: "What we stand for" },
+  { href: "#mission", label: "Our mission" },
   { href: "#voices", label: "Voices" },
 ];
 
