@@ -6,7 +6,7 @@ export function ClosingCta() {
     <section
       id="stay"
       aria-labelledby="close-h"
-      className="border-b border-white/15 bg-accent-strong py-20 lg:py-32"
+      className="section-y border-b border-white/15 bg-accent-strong"
     >
       <div className="wrap grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left: sticky intro with the disclaimer at the bottom. */}
@@ -19,7 +19,7 @@ export function ClosingCta() {
             >
               Be part of fixing this.
             </h2>
-            <p className="mt-5 max-w-[44ch] text-[17px] text-white/85">
+            <p className="mt-6 max-w-[44ch] text-[17px] text-white/85">
               No demos, no pitch. Just updates from a team of clinicians working to make shift
               change safer, and an open invitation to tell us how the handoff really feels on your
               floor.

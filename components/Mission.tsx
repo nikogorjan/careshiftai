@@ -26,7 +26,7 @@ const FAQ: FaqItem[] = [
 
 export function Mission() {
   return (
-    <section id="mission" aria-labelledby="mission-h" className="bg-white py-20 lg:py-32">
+    <section id="mission" aria-labelledby="mission-h" className="bg-white section-y">
       <div className="wrap">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Left column: sticky heading. */}
@@ -76,7 +76,7 @@ export function Mission() {
         </div>
 
         {/* FAQ spans the full width under both columns. */}
-        <div className="mt-16 lg:mt-24">
+        <div className="section-gap">
           <Eyebrow className="mb-6">FAQ</Eyebrow>
           <Faq items={FAQ} />
           <p className="mt-8 text-ink-3">

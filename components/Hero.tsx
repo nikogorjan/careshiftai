@@ -33,7 +33,7 @@ export function Hero() {
         className="photo-scrim absolute inset-0"
       />
 
-      <div className="wrap relative w-full pt-40 pb-16 lg:pb-24">
+      <div className="wrap relative w-full pb-(--section-y)">
         <div className="max-w-[820px]">
           <h1 className="font-display text-[40px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-white lg:text-[64px]">
             You became a nurse to care for people.{" "}

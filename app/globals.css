@@ -56,6 +56,37 @@
   }
 }
 
+/*
+ * Shared vertical rhythm. Every section uses the same padding and the same
+ * header-to-body gap; nothing else adds vertical margins between sections.
+ */
+:root {
+  --section-y: 64px;
+  --section-gap: 48px;
+}
+@media (min-width: 640px) {
+  :root {
+    --section-y: 96px;
+    --section-gap: 64px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --section-y: 128px;
+    --section-gap: 96px;
+  }
+}
+
+/* Standard section padding, top and bottom. */
+@utility section-y {
+  padding-block: var(--section-y);
+}
+
+/* Gap between a section's header block and its body content. */
+@utility section-gap {
+  margin-top: var(--section-gap);
+}
+
 /* Content wrapper: 1320px container, 24px side padding. */
 @utility wrap {
   max-width: 1320px;

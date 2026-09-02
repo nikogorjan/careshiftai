@@ -84,20 +84,20 @@ function Ring({
 
 export function WhyItMatters() {
   return (
-    <section id="why" aria-labelledby="matters-h" className="bg-white py-20 lg:py-32">
+    <section id="why" aria-labelledby="matters-h" className="bg-white section-y">
       <div className="wrap">
         <div className="max-w-180">
           <Eyebrow>Why it matters</Eyebrow>
           <SectionHeading id="matters-h">
             When the handoff breaks, patients and nurses both pay.
           </SectionHeading>
-          <p className="mt-5 max-w-[60ch] text-ink-2">
+          <p className="mt-6 max-w-[60ch] text-ink-2">
             This isn&rsquo;t about efficiency. It&rsquo;s about safety at the bedside and the people
             we ask to carry it. A few numbers, quietly, with room to add the sources behind them.
           </p>
         </div>
 
-        <div className="mt-24 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16">
+        <div className="section-gap grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16">
           {/* Hero stat panel, columns 1 to 5, stretching to the rows' height. */}
           <figure className="m-0 flex flex-col gap-10 rounded-lg bg-ink p-10 lg:p-12">
             {/* The ring centers in the space above the bottom-pinned label. */}

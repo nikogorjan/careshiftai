@@ -26,7 +26,7 @@ const PRINCIPLES = [
 
 export function Values() {
   return (
-    <section id="values" aria-labelledby="values-h" className="bg-white pb-32">
+    <section id="values" aria-labelledby="values-h" className="bg-white section-y">
       {/* Header on white, above the photo. */}
       <div className="wrap">
         <Eyebrow>What we stand for</Eyebrow>

@@ -4,8 +4,7 @@ const PHOTO = "https://bloom42-media.s3.eu-central-1.amazonaws.com/nurses-rush.w
 
 export function DayOnTheFloor() {
   return (
-    <section aria-labelledby="day-h" className="bg-white pb-20 lg:pb-32">
-      <div className="wrap">
+    <div aria-labelledby="day-h" className="wrap section-gap">
         <figure className="relative m-0 flex aspect-4/5 w-full flex-col overflow-hidden rounded-lg bg-dark lg:aspect-[21/9]">
           <div
             className="absolute inset-0 h-full w-full bg-cover bg-center"
@@ -26,7 +25,7 @@ export function DayOnTheFloor() {
             >
               0645. The shift is <span className="text-white/70">changing.</span>
             </h2>
-            <p className="mt-5 max-w-[60ch] text-white/85">
+            <p className="mt-6 max-w-[60ch] text-white/85">
               At 0645 a nurse doesn&rsquo;t need software telling her what to think. She needs to
               know what changed overnight, who&rsquo;s watching what, and what happens if the
               patient in room 4 does the thing he did at 0200. She needs it fast, structured so
@@ -35,7 +34,6 @@ export function DayOnTheFloor() {
             </p>
           </figcaption>
         </figure>
-      </div>
-    </section>
+    </div>
   );
 }

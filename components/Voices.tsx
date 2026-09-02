@@ -56,7 +56,7 @@ export function Voices() {
   useEffect(() => () => window.clearTimeout(settleTimer.current), []);
 
   return (
-    <section id="voices" aria-labelledby="voices-h" className="bg-white py-20 lg:py-32">
+    <section id="voices" aria-labelledby="voices-h" className="bg-white section-y">
       {/* Header row: text left, the only carousel controls right. */}
       <div className="wrap flex items-end justify-between gap-8">
         <div>
@@ -113,7 +113,7 @@ export function Voices() {
       <div
         ref={scroller}
         onScroll={onScroll}
-        className="mt-12 flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="section-gap flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ marginLeft: GUTTER }}
       >
         {voices.map((v, i) => {

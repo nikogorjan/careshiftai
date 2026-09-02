@@ -1,3 +1,4 @@
+import { DayOnTheFloor } from "@/components/DayOnTheFloor";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -40,7 +41,7 @@ const STEP = [
 
 export function Reality() {
   return (
-    <section id="reality" aria-labelledby="reality-h" className="bg-white py-20 lg:py-32">
+    <section id="reality" aria-labelledby="reality-h" className="bg-white section-y">
       <div className="wrap">
         {/* Part 1: sticky header text left, tinted panel right. */}
         <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
@@ -49,7 +50,7 @@ export function Reality() {
             <SectionHeading id="reality-h">
               You know this shift. You&rsquo;ve lived it a thousand times.
             </SectionHeading>
-            <p className="mt-5 max-w-[44ch] text-ink-2">
+            <p className="mt-6 max-w-[44ch] text-ink-2">
               The handoff is where care is supposed to pass safely from one set of hands to the
               next. Too often, it&rsquo;s ninety rushed seconds, a scribbled note, and the quiet
               fear that something got left behind.
@@ -79,7 +80,7 @@ export function Reality() {
         </div>
 
         {/* Part 2: the five quotes as a staircase rising to the right. */}
-        <ul className="m-0 mt-24 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
+        <ul className="section-gap m-0 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
           {QUOTES.map((q, i) => (
             <li
               key={q.label}
@@ -101,6 +102,9 @@ export function Reality() {
           ))}
         </ul>
       </div>
+
+      {/* A contained image card in this section's flow, not a section itself. */}
+      <DayOnTheFloor />
     </section>
   );
 }

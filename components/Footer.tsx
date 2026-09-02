@@ -19,7 +19,7 @@ const colLink =
 
 export function Footer() {
   return (
-    <footer className="bg-dark pt-16 pb-8 text-white/70">
+    <footer className="bg-dark pt-20 pb-10 text-white/70">
       <div className="wrap">
         <div className="flex flex-wrap items-start justify-between gap-12">
           <div>
