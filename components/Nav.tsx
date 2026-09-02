@@ -8,7 +8,9 @@ import logo from "@/public/careshift-logo.png";
 
 const LINKS = [
   { href: "#reality", label: "The problem" },
+  { href: "#why", label: "Why it matters" },
   { href: "#mission", label: "Our mission" },
+  { href: "#values", label: "What we stand for" },
   { href: "#voices", label: "Voices" },
 ];
 
@@ -23,55 +25,55 @@ export function Nav() {
           <b className="font-display text-xl font-medium tracking-[-0.02em] text-ink">CareShift</b>
         </a>
 
-        <nav
-          aria-label="Primary"
-          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex"
-        >
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[15px] text-ink-2 no-underline transition-colors duration-150 hover:text-ink"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        {/* Links sit on the right, directly next to the call to action. */}
+        <div className="flex items-center gap-7">
+          <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
+            {LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[15px] text-ink-2 no-underline transition-colors duration-150 hover:text-ink"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-3">
-          <Btn href="#stay" variant="primary" className="hidden sm:inline-flex">
-            Stay updated
-          </Btn>
-          <button
-            type="button"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-            className="grid h-10 w-10 cursor-pointer place-items-center rounded-sm border border-line bg-white text-ink lg:hidden"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              aria-hidden="true"
-              className="h-5 w-5"
+          <div className="flex items-center gap-3">
+            <Btn href="#stay" variant="primary" className="hidden sm:inline-flex">
+              Stay updated
+            </Btn>
+            <button
+              type="button"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+              className="grid h-10 w-10 cursor-pointer place-items-center rounded-sm border border-line bg-white text-ink lg:hidden"
             >
-              {menuOpen ? (
-                <>
-                  <path d="M6 6l12 12" />
-                  <path d="M18 6L6 18" />
-                </>
-              ) : (
-                <>
-                  <path d="M4 7h16" />
-                  <path d="M4 12h16" />
-                  <path d="M4 17h16" />
-                </>
-              )}
-            </svg>
-          </button>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                aria-hidden="true"
+                className="h-5 w-5"
+              >
+                {menuOpen ? (
+                  <>
+                    <path d="M6 6l12 12" />
+                    <path d="M18 6L6 18" />
+                  </>
+                ) : (
+                  <>
+                    <path d="M4 7h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 17h16" />
+                  </>
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 

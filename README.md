@@ -27,8 +27,9 @@ Hard rules baked into the codebase:
 
 - No box shadows anywhere. Depth comes from 1px `line` borders and the
   `tint` background only.
-- No decorative gradients. The only gradients are the neutral dark scrims
-  over the hero video and the day-on-the-floor photo.
+- No decorative gradients. The only gradient is the shared `photo-scrim`
+  utility (defined once in globals.css), used over the hero video and the
+  day-on-the-floor and what-we-stand-for photos.
 - Border radius: 4px buttons and inputs (`rounded-sm`), 8px cards and
   contained images (`rounded-lg`), circular avatars. Nothing larger.
 - No hover transforms. Only 150ms color transitions, the 300ms carousel

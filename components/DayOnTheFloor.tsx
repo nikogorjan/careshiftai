@@ -16,7 +16,7 @@ export function DayOnTheFloor() {
           {/* Neutral scrim concentrated in the bottom-left quadrant. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top_right,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.5)_55%,rgba(0,0,0,0)_88%)]"
+            className="photo-scrim pointer-events-none absolute inset-0"
           />
           <figcaption className="relative mt-auto w-full p-6 lg:p-14">
             <Eyebrow tone="onDark">A day on the floor</Eyebrow>

@@ -30,7 +30,7 @@ export function Hero() {
       {/* Single neutral scrim from the bottom-left corner for text legibility. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(to_top_right,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.48)_55%,rgba(0,0,0,0)_88%)]"
+        className="photo-scrim absolute inset-0"
       />
 
       <div className="wrap relative w-full pt-40 pb-16 lg:pb-24">

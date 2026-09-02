@@ -26,7 +26,7 @@ const PRINCIPLES = [
 
 export function Values() {
   return (
-    <section aria-labelledby="values-h" className="bg-white pb-32">
+    <section id="values" aria-labelledby="values-h" className="bg-white pb-32">
       {/* Header on white, above the photo. */}
       <div className="wrap">
         <Eyebrow>What we stand for</Eyebrow>
@@ -37,17 +37,25 @@ export function Values() {
         </SectionHeading>
       </div>
 
-      {/* Full-bleed photo backdrop: natural color, sharp, nothing on top of it. */}
-      <div
-        role="img"
-        aria-label="An empty hospital waiting area with daylight"
-        className="mt-16 h-70 w-full bg-cover [background-position:center_40%] sm:h-100 lg:h-150"
-        style={{ backgroundImage: `url("${PHOTO}")` }}
-      />
+      {/* Full-bleed photo backdrop with the shared scrim over its lower part. */}
+      <div className="relative mt-16 h-80 w-full sm:h-120 lg:h-170">
+        <div
+          role="img"
+          aria-label="An empty hospital waiting area with daylight"
+          className="absolute inset-0 bg-cover [background-position:center_30%]"
+          style={{ backgroundImage: `url("${PHOTO}")` }}
+        />
+        {/*
+          Full-height coverage: the shared diagonal scrim only reaches zero
+          alpha at its own top-right corner, so any shorter band would draw a
+          hard seam across the photo's left side.
+        */}
+        <div aria-hidden="true" className="photo-scrim absolute inset-0" />
+      </div>
 
       {/* Four cards overlapping the bottom of the photo; card 01 anchors the row. */}
       <div className="wrap">
-        <ol className="relative -mt-20 grid list-none grid-cols-1 gap-4 p-0 sm:-mt-30 sm:grid-cols-2 sm:*:min-h-60 lg:-mt-60 lg:grid-cols-4 lg:*:min-h-80">
+        <ol className="relative -mt-20 grid list-none grid-cols-1 gap-4 p-0 sm:-mt-30 sm:grid-cols-2 sm:*:min-h-60 lg:-mt-75 lg:grid-cols-4 lg:*:min-h-80">
           {PRINCIPLES.map((p, i) => {
             const dark = i === 0;
             return (

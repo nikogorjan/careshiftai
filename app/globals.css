@@ -63,6 +63,20 @@
   padding-inline: 24px;
 }
 
+/*
+ * The one shared photo scrim, extracted from the hero: neutral dark, fading
+ * from the bottom-left corner. Sections vary only how much of the image it
+ * covers (the element's height), never the colors, stops or direction.
+ */
+@utility photo-scrim {
+  background-image: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.48) 55%,
+    rgba(0, 0, 0, 0) 88%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
