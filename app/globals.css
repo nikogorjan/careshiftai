@@ -56,9 +56,9 @@
   }
 }
 
-/* Content wrapper: 1200px container, 24px side padding. */
+/* Content wrapper: 1320px container, 24px side padding. */
 @utility wrap {
-  max-width: 1200px;
+  max-width: 1320px;
   margin-inline: auto;
   padding-inline: 24px;
 }
