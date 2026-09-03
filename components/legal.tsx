@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { LegalToc, type TocItem } from "@/components/LegalToc";
 
 /*
- * Shared shell and primitives for the legal pages. 760px measure, quiet
- * typography, no cards or boxes.
+ * Shared shell and primitives for the legal pages: full-width header, then a
+ * sticky TOC sidebar beside a 760px content column. No cards or boxes.
  */
 
 /** Swap in the full legal name here once the entity is formed. */
@@ -29,12 +30,12 @@ export function LegalShell({
   children,
 }: {
   title: string;
-  toc: Array<{ id: string; label: string }>;
+  toc: TocItem[];
   children: ReactNode;
 }) {
   return (
     <main className="section-y bg-white">
-      <div className="mx-auto max-w-[760px] px-6">
+      <div className="wrap">
         <DraftNotice />
         <Eyebrow>Legal</Eyebrow>
         <h1 className="font-display text-[32px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-ink lg:text-[48px]">
@@ -42,22 +43,12 @@ export function LegalShell({
         </h1>
         <p className="mt-4 text-sm text-ink-3">Last updated: September 3, 2026</p>
 
-        <nav aria-label="Contents" className="mt-10">
-          <ul className="m-0 flex list-none flex-col gap-1.5 p-0">
-            {toc.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
-                  className="text-[15px] text-ink-2 no-underline transition-colors duration-150 hover:text-accent"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="mt-4">{children}</div>
+        <div className="mt-12 grid grid-cols-1 gap-y-8 lg:grid-cols-[280px_minmax(0,760px)] lg:gap-x-16">
+          <aside className="lg:sticky lg:top-28 lg:self-start">
+            <LegalToc toc={toc} />
+          </aside>
+          <div>{children}</div>
+        </div>
       </div>
     </main>
   );
@@ -67,7 +58,7 @@ export function LegalH2({ id, children }: { id: string; children: ReactNode }) {
   return (
     <h2
       id={id}
-      className="mt-12 mb-4 scroll-mt-24 font-display text-2xl leading-snug font-medium tracking-[-0.01em] text-ink"
+      className="mt-12 mb-4 scroll-mt-28 border-t border-line pt-8 font-display text-2xl leading-snug font-medium tracking-[-0.01em] text-ink first:mt-0 first:border-t-0 first:pt-0"
     >
       {children}
     </h2>
@@ -88,7 +79,7 @@ export function UL({ children }: { children: ReactNode }) {
 
 export function LegalLink({ href, children }: { href: string; children: ReactNode }) {
   const className =
-    "text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent";
+    "text-accent underline decoration-1 [text-underline-offset:3px] transition-colors duration-150 hover:text-accent-strong";
   if (href.startsWith("/")) {
     return (
       <Link href={href} className={className}>
