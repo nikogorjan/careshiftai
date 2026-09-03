@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
@@ -29,8 +30,16 @@ export function Btn({ variant = "primary", className, children, ...rest }: LinkP
   const classes = cn(base, variants[variant], className);
 
   if ("href" in rest && rest.href !== undefined) {
+    const { href, ...anchorRest } = rest as AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
+    if (href.startsWith("/")) {
+      return (
+        <Link href={href} className={classes} {...anchorRest}>
+          {children}
+        </Link>
+      );
+    }
     return (
-      <a className={classes} {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}>
+      <a href={href} className={classes} {...anchorRest}>
         {children}
       </a>
     );

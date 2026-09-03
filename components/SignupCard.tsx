@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import {
   Select,
@@ -22,6 +23,15 @@ const label = "flex items-baseline gap-1 text-[13px] tracking-[0.06em] text-whit
 
 export const HINT = "We'll only use your email to share mission updates. No spam, ever.";
 
+/*
+ * Web3Forms access key, provided per environment. Submissions post to the
+ * Web3Forms API, which emails them to the address the key was created for.
+ * While unset the form falls back to demo behavior: it validates and shows
+ * the confirmation without sending anywhere.
+ */
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+const ENDPOINT = "https://api.web3forms.com/submit";
+
 function validEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
@@ -37,15 +47,43 @@ export function SignupForm() {
   const [story, setStory] = useState("");
   const [role, setRole] = useState<string | undefined>(undefined);
   const [error, setError] = useState("");
+  const [sendError, setSendError] = useState(false);
+  const [sending, setSending] = useState(false);
   const [done, setDone] = useState(false);
 
-  const submit = () => {
+  const submit = async () => {
     if (!validEmail(email)) {
       setError("Please enter a valid email so we can keep you posted.");
       return;
     }
     setError("");
-    setDone(true);
+    setSendError(false);
+    if (!ACCESS_KEY) {
+      setDone(true);
+      return;
+    }
+    setSending(true);
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: "New CareShift signup",
+          firstName,
+          lastName,
+          email,
+          role: role ?? "",
+          story,
+        }),
+      });
+      if (res.ok) setDone(true);
+      else setSendError(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -154,12 +192,25 @@ export function SignupForm() {
           <button
             type="button"
             onClick={submit}
-            className="h-12 cursor-pointer rounded-sm bg-white px-7 text-[15px] leading-none font-medium text-ink transition-colors duration-150 hover:bg-ink hover:text-white"
+            disabled={sending}
+            className="h-12 cursor-pointer rounded-sm bg-white px-7 text-[15px] leading-none font-medium text-ink transition-colors duration-150 hover:bg-ink hover:text-white disabled:cursor-default disabled:opacity-60"
           >
-            Keep me posted
+            {sending ? "Sending…" : "Keep me posted"}
           </button>
+          {sendError && (
+            <p role="alert" className="m-0 mt-3 text-[13px] text-[#ffd0cc]">
+              Something went wrong on our end. Please try again in a moment.
+            </p>
+          )}
           {/* Below lg the disclaimer sits back under the button. */}
-          <p className="m-0 mt-3 text-[13px] text-white/60 lg:hidden">{HINT}</p>
+          <p className="m-0 mt-3 text-[13px] lg:hidden">
+            <Link
+              href="/privacy"
+              className="text-white/60 underline decoration-white/30 underline-offset-2 transition-colors duration-150 hover:text-white"
+            >
+              {HINT}
+            </Link>
+          </p>
         </div>
       </div>
 

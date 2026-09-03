@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { HINT, SignupForm } from "@/components/SignupCard";
 
@@ -26,7 +27,14 @@ export function ClosingCta() {
             </p>
             <div className="mt-10 hidden lg:block">
               <div aria-hidden="true" className="mb-3 h-px w-6 bg-white/40" />
-              <p className="m-0 max-w-[44ch] text-sm text-white/60">{HINT}</p>
+              <p className="m-0 max-w-[44ch] text-sm">
+                <Link
+                  href="/privacy"
+                  className="text-white/60 underline decoration-white/30 underline-offset-2 transition-colors duration-150 hover:text-white"
+                >
+                  {HINT}
+                </Link>
+              </p>
             </div>
           </div>
         </div>

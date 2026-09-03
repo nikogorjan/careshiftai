@@ -74,7 +74,8 @@ images, so no `next/image` remote-pattern config is needed.
 
 ## Notes
 
-- The signup form has **no backend**. A valid email swaps the card for a
-  thank-you panel; nothing is sent anywhere.
+- The signup form posts to Web3Forms when `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
+  is set (see `.env.example`); while unset it validates and shows the
+  confirmation without sending anywhere.
 - `prefers-reduced-motion` is honoured: transitions collapse, the voice
   carousel switches without fading, and the hero video pauses.
