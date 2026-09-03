@@ -1,4 +1,3 @@
-import { DayOnTheFloor } from "@/components/DayOnTheFloor";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -102,9 +101,6 @@ export function Reality() {
           ))}
         </ul>
       </div>
-
-      {/* A contained image card in this section's flow, not a section itself. */}
-      <DayOnTheFloor />
     </section>
   );
 }

@@ -4,7 +4,8 @@ const PHOTO = "https://bloom42-media.s3.eu-central-1.amazonaws.com/nurses-rush.w
 
 export function DayOnTheFloor() {
   return (
-    <div aria-labelledby="day-h" className="wrap section-gap">
+    <section aria-labelledby="day-h" className="section-y bg-white">
+      <div className="wrap">
         <figure className="relative m-0 flex aspect-4/5 w-full flex-col overflow-hidden rounded-lg bg-dark lg:aspect-[21/9]">
           <div
             className="absolute inset-0 h-full w-full bg-cover bg-center"
@@ -34,6 +35,7 @@ export function DayOnTheFloor() {
             </p>
           </figcaption>
         </figure>
-    </div>
+      </div>
+    </section>
   );
 }

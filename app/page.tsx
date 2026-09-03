@@ -1,4 +1,5 @@
 import { ClosingCta } from "@/components/ClosingCta";
+import { DayOnTheFloor } from "@/components/DayOnTheFloor";
 import { Hero } from "@/components/Hero";
 import { Mission } from "@/components/Mission";
 import { Reality } from "@/components/Reality";
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Hero />
       <Reality />
+      <DayOnTheFloor />
       <WhyItMatters />
       <Values />
       <Mission />
