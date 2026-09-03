@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 
@@ -44,7 +45,7 @@ export function Reality() {
       <div className="wrap">
         {/* Part 1: sticky header text left, tinted panel right. */}
         <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:gap-x-12">
-          <div className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
+          <Reveal className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
             <Eyebrow>The reality</Eyebrow>
             <SectionHeading id="reality-h">
               You know this shift. You&rsquo;ve lived it a thousand times.
@@ -54,9 +55,9 @@ export function Reality() {
               next. Too often, it&rsquo;s ninety rushed seconds, a scribbled note, and the quiet
               fear that something got left behind.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="rounded-lg bg-tint p-8 lg:col-span-7">
+          <Reveal delay={100} className="rounded-lg bg-tint p-8 lg:col-span-7">
             <div
               className="aspect-16/10 w-full rounded-lg bg-cover bg-center"
               style={{ backgroundImage: `url("${PHOTO}")` }}
@@ -75,15 +76,17 @@ export function Reality() {
               The signals a seasoned nurse catches before the monitor does: a change in affect, a
               tense family, the early edge of deterioration.
             </p>
-          </div>
+          </Reveal>
         </div>
 
         {/* Part 2: the five quotes as a staircase rising to the right. */}
         <ul className="section-gap m-0 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
           {QUOTES.map((q, i) => (
-            <li
+            <Reveal
+              as="li"
               key={q.label}
-              className={`flex min-h-75 flex-col justify-between gap-6 border border-line bg-white px-7 py-8 transition-colors duration-150 hover:border-ink ${
+              delay={i * 70}
+              className={`flex min-h-75 flex-col justify-between gap-6 border border-line bg-white px-7 py-8 hover:border-ink ${
                 i > 0 ? "lg:border-l-0" : ""
               } ${STEP[i]}`}
             >
@@ -97,7 +100,7 @@ export function Reality() {
                 />
                 {q.label}
               </p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

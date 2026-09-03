@@ -1,3 +1,4 @@
+import { Reveal, Settle } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 
 const PHOTO = "https://bloom42-media.s3.eu-central-1.amazonaws.com/nurses-rush.webp";
@@ -6,8 +7,12 @@ export function DayOnTheFloor() {
   return (
     <section aria-labelledby="day-h" className="section-y bg-white">
       <div className="wrap">
-        <figure className="relative m-0 flex aspect-4/5 w-full flex-col overflow-hidden rounded-lg bg-dark lg:aspect-[21/9]">
-          <div
+        <Reveal
+          as="figure"
+          variant="fade"
+          className="relative m-0 flex aspect-4/5 w-full flex-col overflow-hidden rounded-lg bg-dark lg:aspect-21/9"
+        >
+          <Settle
             className="absolute inset-0 h-full w-full bg-cover bg-center"
             style={{ backgroundImage: `url("${PHOTO}")` }}
             role="img"
@@ -34,7 +39,7 @@ export function DayOnTheFloor() {
               and hope.
             </p>
           </figcaption>
-        </figure>
+        </Reveal>
       </div>
     </section>
   );

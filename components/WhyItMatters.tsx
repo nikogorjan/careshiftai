@@ -1,4 +1,8 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/cn";
@@ -31,8 +35,8 @@ const SOURCES = [
 const sup = "text-[0.62em] font-medium text-accent";
 
 /**
- * Static SVG progress ring. Track in `line`, fill in `accent`, square caps,
- * starting at 12 o'clock and sweeping clockwise. No animation.
+ * SVG progress ring. Track in `line`, fill in `accent`, square caps, starting
+ * at 12 o'clock and sweeping clockwise to its value on first view.
  */
 function Ring({
   size,
@@ -54,6 +58,8 @@ function Ring({
 }) {
   const r = size / 2 - stroke / 2;
   const c = 2 * Math.PI * r;
+  const target = c * (1 - value / 100);
+  const reduce = useReducedMotion();
   return (
     <div className={cn("relative grid aspect-square place-items-center", className)}>
       <svg viewBox={`0 0 ${size} ${size}`} aria-hidden="true" className="h-full w-full -rotate-90">
@@ -66,14 +72,19 @@ function Ring({
           strokeLinecap="butt"
           className={track}
         />
-        <circle
+        <motion.circle
           cx={size / 2}
           cy={size / 2}
           r={r}
           fill="none"
           strokeWidth={stroke}
           strokeLinecap="butt"
-          strokeDasharray={`${(c * value) / 100} ${c}`}
+          strokeDasharray={c}
+          initial={{ strokeDashoffset: c }}
+          whileInView={{ strokeDashoffset: target }}
+          animate={reduce ? { strokeDashoffset: target } : undefined}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: reduce ? 0 : 1.2, ease: "easeOut" }}
           className="stroke-accent"
         />
       </svg>
@@ -86,7 +97,7 @@ export function WhyItMatters() {
   return (
     <section id="why" aria-labelledby="matters-h" className="bg-white section-y">
       <div className="wrap">
-        <div className="max-w-180">
+        <Reveal className="max-w-180">
           <Eyebrow>Why it matters</Eyebrow>
           <SectionHeading id="matters-h">
             When the handoff breaks, patients and nurses both pay.
@@ -95,11 +106,11 @@ export function WhyItMatters() {
             This isn&rsquo;t about efficiency. It&rsquo;s about safety at the bedside and the people
             we ask to carry it. A few numbers, quietly, with room to add the sources behind them.
           </p>
-        </div>
+        </Reveal>
 
         <div className="section-gap grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16">
           {/* Hero stat panel, columns 1 to 5, stretching to the rows' height. */}
-          <figure className="m-0 flex flex-col gap-10 rounded-lg bg-ink p-10 lg:p-12">
+          <Reveal as="figure" className="m-0 flex flex-col gap-10 rounded-lg bg-ink p-10 lg:p-12">
             {/* The ring centers in the space above the bottom-pinned label. */}
             <div className="grid flex-1 place-items-center">
               <Ring size={300} stroke={6} value={80} track="stroke-white/20" className="w-65 lg:w-75">
@@ -112,13 +123,14 @@ export function WhyItMatters() {
               of serious medical errors involve miscommunication during a patient handoff.
               <sup className={sup}>1</sup>
             </figcaption>
-          </figure>
+          </Reveal>
 
           {/* Secondary stats; top-aligned, not stretched to the panel height. */}
           <div className="lg:self-start">
             {SECONDARY.map((stat, i) => (
-              <div
+              <Reveal
                 key={stat.src}
+                delay={i * 100}
                 className={cn(
                   "flex items-center gap-8 border-t border-line py-9",
                   i === SECONDARY.length - 1 && "border-b",
@@ -133,7 +145,7 @@ export function WhyItMatters() {
                   {stat.note}
                   <sup className={sup}>{stat.src}</sup>
                 </p>
-              </div>
+              </Reveal>
             ))}
 
             <div className="mt-10 flex flex-col gap-1.5 text-[13px] leading-relaxed text-ink-3">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { HINT, SignupForm } from "@/components/SignupCard";
 
@@ -12,7 +13,7 @@ export function ClosingCta() {
       <div className="wrap grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left: sticky intro with the disclaimer at the bottom. */}
         <div className="lg:col-span-5">
-          <div className="lg:sticky lg:top-24">
+          <Reveal className="lg:sticky lg:top-24">
             <Eyebrow tone="onDark">Join the mission</Eyebrow>
             <h2
               id="close-h"
@@ -36,13 +37,13 @@ export function ClosingCta() {
                 </Link>
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Right: the form directly on the teal band. */}
-        <div className="lg:col-span-6 lg:col-start-7">
+        <Reveal delay={120} className="lg:col-span-6 lg:col-start-7">
           <SignupForm />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

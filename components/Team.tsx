@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { DrawRule, Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/cn";
@@ -19,12 +20,14 @@ export function Team() {
   return (
     <section id="team" aria-labelledby="team-h" className="section-y bg-white">
       <div className="wrap">
-        <Eyebrow>The team</Eyebrow>
-        <SectionHeading id="team-h">The people behind CareShift.</SectionHeading>
+        <Reveal>
+          <Eyebrow>The team</Eyebrow>
+          <SectionHeading id="team-h">The people behind CareShift.</SectionHeading>
+        </Reveal>
 
         <ul className="section-gap m-0 grid list-none grid-cols-2 gap-4 p-0 sm:gap-6 lg:grid-cols-4">
-          {MEMBERS.map((m) => (
-            <li key={m.role} className="m-0">
+          {MEMBERS.map((m, i) => (
+            <Reveal as="li" key={m.role} delay={i * 80} className="m-0">
               <div className="aspect-4/5 overflow-hidden rounded-lg">
                 <Image
                   src={m.src}
@@ -34,10 +37,10 @@ export function Team() {
                 />
               </div>
               <div className="mt-4">
-                <div aria-hidden="true" className="mb-3 h-px w-6 bg-accent" />
+                <DrawRule className="mb-3 h-px w-6 bg-accent" />
                 <p className="m-0 text-sm font-medium text-ink sm:text-[15px]">{m.role}</p>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

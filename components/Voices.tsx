@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cn } from "@/lib/cn";
@@ -56,9 +57,9 @@ export function Voices() {
   useEffect(() => () => window.clearTimeout(settleTimer.current), []);
 
   return (
-    <section id="voices" aria-labelledby="voices-h" className="bg-white pt-(--section-y) pb-[calc(var(--section-y)*2)]">
+    <section id="voices" aria-labelledby="voices-h" className="overflow-x-clip bg-white pt-(--section-y) pb-[calc(var(--section-y)*2)]">
       {/* Header row: text left, the only carousel controls right. */}
-      <div className="wrap flex items-end justify-between gap-8">
+      <Reveal className="wrap flex items-end justify-between gap-8">
         <div>
           <Eyebrow>Voices</Eyebrow>
           <SectionHeading id="voices-h">
@@ -107,9 +108,10 @@ export function Voices() {
             </svg>
           </button>
         </div>
-      </div>
+      </Reveal>
 
       {/* Bleeding track: clips at the container edge left, viewport edge right. */}
+      <Reveal variant="right" delay={120}>
       <div
         ref={scroller}
         onScroll={onScroll}
@@ -175,6 +177,7 @@ export function Voices() {
           className="w-[max(0px,calc(15vw-48px))] flex-none sm:w-[calc(100vw-428px)] lg:w-[calc(100vw-504px-max(24px,calc((100vw-1272px)/2)))]"
         />
       </div>
+      </Reveal>
     </section>
   );
 }

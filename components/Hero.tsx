@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Reveal } from "@/components/anim";
 import { Btn } from "@/components/Btn";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
@@ -35,23 +36,27 @@ export function Hero() {
 
       <div className="wrap relative w-full pb-(--section-y)">
         <div className="max-w-[820px]">
-          <h1 className="font-display text-[40px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-white lg:text-[64px]">
-            You became a nurse to care for people.{" "}
-            <span className="text-white/70">Not to chase down a handoff.</span>
-          </h1>
-          <p className="mt-6 max-w-[52ch] text-white/85">
-            CareShift is a mission to fix the most fragile moment in healthcare: shift change.
-            We&rsquo;re nurses, doctors, and engineers building a safer handoff, with nurses, not at
-            them.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <Reveal>
+            <h1 className="font-display text-[40px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-white lg:text-[64px]">
+              You became a nurse to care for people.{" "}
+              <span className="text-white/70">Not to chase down a handoff.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mt-6 max-w-[52ch] text-white/85">
+              CareShift is a mission to fix the most fragile moment in healthcare: shift change.
+              We&rsquo;re nurses, doctors, and engineers building a safer handoff, with nurses, not
+              at them.
+            </p>
+          </Reveal>
+          <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
             <Btn href="#stay" variant="onDark">
               Stay updated
             </Btn>
             <Btn href="#reality" variant="onDarkSecondary">
               See what we&rsquo;re fixing
             </Btn>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

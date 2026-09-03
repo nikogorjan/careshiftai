@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/anim";
 import { cn } from "@/lib/cn";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -28,14 +29,14 @@ export function Values() {
   return (
     <section id="values" aria-labelledby="values-h" className="bg-white section-y">
       {/* Header on white, above the photo. */}
-      <div className="wrap">
+      <Reveal className="wrap">
         <Eyebrow>What we stand for</Eyebrow>
         <SectionHeading id="values-h">
           A few things we won&rsquo;t
           <br />
           compromise on.
         </SectionHeading>
-      </div>
+      </Reveal>
 
       {/* Full-bleed photo backdrop with the shared scrim over its lower part. */}
       <div className="relative mt-16 h-80 w-full sm:h-120 lg:h-170">
@@ -59,12 +60,11 @@ export function Values() {
           {PRINCIPLES.map((p, i) => {
             const dark = i === 0;
             return (
-              <li
+              <Reveal
+                as="li"
                 key={p.title}
-                className={cn(
-                  "m-0 flex flex-col rounded-lg p-10",
-                  dark ? "bg-ink" : "bg-[#e4f2f3]",
-                )}
+                delay={i * 80}
+                className={cn("m-0 flex flex-col rounded-lg p-10", dark ? "bg-ink" : "bg-[#e4f2f3]")}
               >
                 <p
                   className={cn(
@@ -88,7 +88,7 @@ export function Values() {
                     {p.text}
                   </p>
                 </div>
-              </li>
+              </Reveal>
             );
           })}
         </ol>

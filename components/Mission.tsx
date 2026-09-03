@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Faq, type FaqItem } from "@/components/Faq";
 
@@ -31,7 +32,7 @@ export function Mission() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Left column: sticky heading. */}
           <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-28">
+            <Reveal className="lg:sticky lg:top-28">
               <Eyebrow>Our mission</Eyebrow>
               <h2 id="mission-h" className="m-0 flex flex-col gap-1 text-balance">
                 <span className="font-display text-[26px] leading-[1.1] font-normal tracking-[-0.02em] text-ink-3 lg:text-[30px]">
@@ -44,11 +45,11 @@ export function Mission() {
                   in the same ways, every shift.
                 </span>
               </h2>
-            </div>
+            </Reveal>
           </div>
 
           {/* Right column: paragraphs and pull quote. */}
-          <div className="lg:col-span-6 lg:col-start-7">
+          <Reveal delay={120} className="lg:col-span-6 lg:col-start-7">
             <p className="max-w-[60ch] text-ink-2">
               CareShift began with one nurse: twenty-plus years in neurorehabilitation (traumatic
               brain injury, spinal cord injury, disorders of consciousness), watching handoffs break
@@ -72,11 +73,11 @@ export function Mission() {
               beginning, defining what a handoff needs to carry, not validating a finished product
               handed to them at the end.
             </p>
-          </div>
+          </Reveal>
         </div>
 
         {/* FAQ spans the full width under both columns. */}
-        <div className="section-gap">
+        <Reveal className="section-gap">
           <Eyebrow className="mb-6">FAQ</Eyebrow>
           <Faq items={FAQ} />
           <p className="mt-8 text-ink-3">
@@ -88,7 +89,7 @@ export function Mission() {
               Follow along as we build it.
             </a>
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
