@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
+import { RequestDemoButton } from "@/components/RequestDemo";
 import { HINT, SignupForm } from "@/components/SignupCard";
 
 export function ClosingCta() {
@@ -26,6 +27,9 @@ export function ClosingCta() {
               change safer, and an open invitation to tell us how the handoff really feels on your
               floor.
             </p>
+            <div className="mt-8">
+              <RequestDemoButton />
+            </div>
             <div className="mt-10 hidden lg:block">
               <div aria-hidden="true" className="mb-3 h-px w-6 bg-white/40" />
               <p className="m-0 max-w-[44ch] text-sm">

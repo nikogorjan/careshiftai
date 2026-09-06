@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Reveal } from "@/components/anim";
-import { Btn } from "@/components/Btn";
+import { RequestDemoButton } from "@/components/RequestDemo";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const VIDEO_SRC = "https://bloom42-media.s3.eu-central-1.amazonaws.com/nurse.mp4";
@@ -29,33 +29,29 @@ export function Hero() {
       />
 
       {/* Single neutral scrim from the bottom-left corner for text legibility. */}
-      <div
-        aria-hidden="true"
-        className="photo-scrim absolute inset-0"
-      />
+      <div aria-hidden="true" className="photo-scrim absolute inset-0" />
 
       <div className="wrap relative w-full pb-(--section-y)">
-        <div className="max-w-[820px]">
+        <div className="max-w-235">
           <Reveal>
-            <h1 className="font-display text-[40px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-white lg:text-[64px]">
-              You became a nurse to care for people.{" "}
-              <span className="text-white/70">Not to chase down a handoff.</span>
+            <h1 className="font-display text-[34px] leading-[1.08] font-normal tracking-[-0.02em] text-balance text-white lg:text-[54px]">
+              Enterprise-Grade AI for Nursing Shift Communication &amp; Continuity of Care
             </h1>
           </Reveal>
           <Reveal delay={120}>
-            <p className="mt-6 max-w-[52ch] text-white/85">
-              CareShift is a mission to fix the most fragile moment in healthcare: shift change.
-              We&rsquo;re nurses, doctors, and engineers building a safer handoff, with nurses, not
-              at them.
+            <p className="mt-6 max-w-[58ch] text-white/85">
+              Keep critical patient context moving from shift to shift, with clearer handoffs,
+              better accountability, and less administrative burden for nurses.
             </p>
           </Reveal>
-          <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
-            <Btn href="#stay" variant="onDark">
-              Stay updated
-            </Btn>
-            <Btn href="#reality" variant="onDarkSecondary">
-              See what we&rsquo;re fixing
-            </Btn>
+          <Reveal delay={240} className="mt-8">
+            <RequestDemoButton />
+          </Reveal>
+          <Reveal delay={360}>
+            <p className="mt-10 font-display text-xl leading-snug font-normal tracking-[-0.01em] text-white lg:text-2xl">
+              Begin Your Shift With Clarity.{" "}
+              <span className="text-white/70">End With Confidence.</span>
+            </p>
           </Reveal>
         </div>
       </div>
