@@ -3,6 +3,7 @@ import { ClosingCta } from "@/components/ClosingCta";
 import { DayOnTheFloor } from "@/components/DayOnTheFloor";
 import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
+import { InTheNews } from "@/components/InTheNews";
 import { Mission } from "@/components/Mission";
 import { Reality } from "@/components/Reality";
 import { Team } from "@/components/Team";
@@ -23,6 +24,7 @@ export default function Home() {
       <Mission />
       <Team />
       <Voices />
+      <InTheNews />
       <ClosingCta />
     </main>
   );

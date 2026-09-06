@@ -57,7 +57,7 @@ export function Voices() {
   useEffect(() => () => window.clearTimeout(settleTimer.current), []);
 
   return (
-    <section id="voices" aria-labelledby="voices-h" className="overflow-x-clip bg-white pt-(--section-y) pb-[calc(var(--section-y)*2)]">
+    <section id="voices" aria-labelledby="voices-h" className="section-y overflow-x-clip bg-white">
       {/* Header row: text left, the only carousel controls right. */}
       <Reveal className="wrap flex items-end justify-between gap-8">
         <div>
