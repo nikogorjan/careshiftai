@@ -1,6 +1,24 @@
-import { Reveal } from "@/components/anim";
+import { DrawRule, Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Faq, type FaqItem } from "@/components/Faq";
+
+/* Light-teal ramp, one shade deeper per card, same family as the Reality staircase. */
+const SHADE = ["bg-[#f3f9f9]", "bg-[#e4f2f3]", "bg-[#d2eaec]"];
+
+const BELIEFS = [
+  {
+    title: "Built around the people delivering care",
+    text: "CareShift is designed alongside nurses and care teams to fit the way work actually happens: capturing what matters during the shift, supporting clearer handoffs, and helping teams follow through on what comes next.",
+  },
+  {
+    title: "Technology should reduce burden, not add to it",
+    text: "We use AI to organize information, surface what matters, and support nurses’ clinical workflow, not replace their judgment.",
+  },
+  {
+    title: "Continuity is a team responsibility",
+    text: "From the bedside nurse to the nurse manager and clinical leadership, everyone should have the visibility they need to keep care moving forward.",
+  },
+];
 
 const FAQ: FaqItem[] = [
   {
@@ -34,47 +52,58 @@ export function Mission() {
           <div className="lg:col-span-5">
             <Reveal className="lg:sticky lg:top-28">
               <Eyebrow>Our mission</Eyebrow>
-              <h2 id="mission-h" className="m-0 flex flex-col gap-1 text-balance">
-                <span className="font-display text-[26px] leading-[1.1] font-normal tracking-[-0.02em] text-ink-3 lg:text-[30px]">
-                  Built by a clinician who
-                </span>
-                <span className="font-display text-[38px] leading-[1.05] font-normal tracking-[-0.02em] text-ink lg:text-[56px]">
-                  watched the handoff fail
-                </span>
-                <span className="font-display text-[26px] leading-[1.1] font-normal tracking-[-0.02em] text-ink lg:text-[30px]">
-                  in the same ways, every shift.
-                </span>
+              <h2
+                id="mission-h"
+                className="m-0 font-display text-[32px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-ink lg:text-[48px]"
+              >
+                Make every shift safer, clearer, and more connected.
               </h2>
             </Reveal>
           </div>
 
-          {/* Right column: paragraphs and pull quote. */}
+          {/* Right column: the mission narrative. */}
           <Reveal delay={120} className="lg:col-span-6 lg:col-start-7">
-            <p className="max-w-[60ch] text-ink-2">
-              CareShift began with one nurse: twenty-plus years in neurorehabilitation (traumatic
-              brain injury, spinal cord injury, disorders of consciousness), watching handoffs break
-              down in predictable, preventable ways. Not from carelessness, but because the moment
-              was never built for how nurses actually think.
+            <p className="m-0 max-w-[40ch] font-display text-[22px] leading-[1.35] font-normal tracking-[-0.015em] text-ink">
+              Care does not stop when a shift ends. The responsibility may change hands, but the
+              patient story continues.
             </p>
 
-            <blockquote className="my-10 border-l-2 border-accent py-1 pl-6">
+            <p className="mt-6 max-w-[60ch] text-ink-2">
+              Our mission at CareShift is to make sure the critical context, priorities, and
+              follow-up from one shift carry clearly into the next, so nurses can spend less time
+              reconstructing information and more time focused on care.
+            </p>
+
+            <blockquote className="mt-10 mb-0 border-l-2 border-accent py-1 pl-6">
               <p className="m-0 font-display text-[24px] leading-[1.2] font-normal tracking-[-0.02em] text-balance text-ink lg:text-[28px]">
-                &ldquo;Not software replacing nursing judgment.{" "}
-                <span className="text-accent">Software built to transfer it.</span>&rdquo;
+                We believe better continuity starts with{" "}
+                <span className="text-accent">better communication.</span>
               </p>
-              <footer className="mt-4 text-sm text-ink-3">
-                The founder &middot; 20+ years in neurorehabilitation nursing
-              </footer>
             </blockquote>
-
-            <p className="max-w-[60ch] text-ink-2">
-              So we built it the only way that made sense: with nurses, from the very first day. A
-              dedicated group of experienced nurses worked alongside the developer from the
-              beginning, defining what a handoff needs to carry, not validating a finished product
-              handed to them at the end.
-            </p>
           </Reveal>
         </div>
+
+        {/* Three beliefs behind the mission, on the light-teal ramp. */}
+        <div className="section-gap grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {BELIEFS.map((b, i) => (
+            <Reveal key={b.title} delay={i * 80} className={`rounded-lg p-7 sm:p-8 ${SHADE[i]}`}>
+              <DrawRule className="h-0.5 w-6 bg-accent" />
+              <h3 className="m-0 mt-5 max-w-[24ch] font-display text-[22px] leading-[1.2] font-normal tracking-[-0.015em] text-ink">
+                {b.title}
+              </h3>
+              <p className="mt-3 text-[15px] text-ink-2">{b.text}</p>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* The goal, echoing the hero tagline. */}
+        <Reveal className="section-gap">
+          <p className="m-0 max-w-[52ch] font-display text-[24px] leading-[1.3] font-normal tracking-[-0.015em] text-ink lg:text-[28px]">
+            <span className="text-ink-3">Our goal is simple:</span> Help every nurse begin their
+            shift with clarity, end with confidence, and know that nothing important gets left
+            behind.
+          </p>
+        </Reveal>
 
         {/* FAQ spans the full width under both columns. */}
         <Reveal className="section-gap">
