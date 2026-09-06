@@ -1,7 +1,7 @@
 import { Reveal, Settle } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 
-const PHOTO = "https://bloom42-media.s3.eu-central-1.amazonaws.com/nurses-rush.webp";
+const PHOTO = "/nurses-tablet.webp";
 
 export function DayOnTheFloor() {
   return (
@@ -10,13 +10,14 @@ export function DayOnTheFloor() {
         <Reveal
           as="figure"
           variant="fade"
-          className="relative m-0 flex w-full flex-col overflow-hidden rounded-lg bg-dark sm:aspect-4/5 lg:aspect-21/9"
+          className="relative m-0 flex w-full flex-col overflow-hidden rounded-lg bg-dark sm:aspect-4/5 lg:aspect-video"
         >
+          {/* High focal point: at 21:9 only the upper two thirds are visible, which is where the faces are. */}
           <Settle
-            className="absolute inset-0 h-full w-full bg-cover bg-center"
+            className="absolute inset-0 h-full w-full bg-cover bg-position-[50%_8%]"
             style={{ backgroundImage: `url("${PHOTO}")` }}
             role="img"
-            aria-label="Nurses moving through a busy unit at shift change"
+            aria-label="Two nurses reviewing patient information on a tablet at shift change"
           />
           {/* Neutral scrim concentrated in the bottom-left quadrant. */}
           <div
