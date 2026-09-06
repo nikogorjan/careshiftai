@@ -23,6 +23,11 @@ export function Team() {
         <Reveal>
           <Eyebrow>The team</Eyebrow>
           <SectionHeading id="team-h">The people behind CareShift.</SectionHeading>
+          <p className="mt-6 max-w-[58ch] text-ink-2">
+            A team with deep roots in care, led by a clinician with more than twenty years at the
+            bedside and shaped by the practicing nurses who live shift change every day. Different
+            backgrounds, one shared conviction: nothing important should be lost between shifts.
+          </p>
         </Reveal>
 
         <ul className="section-gap m-0 grid list-none grid-cols-2 gap-4 p-0 sm:gap-6 lg:grid-cols-4">
