@@ -10,7 +10,7 @@ export function DayOnTheFloor() {
         <Reveal
           as="figure"
           variant="fade"
-          className="relative m-0 flex aspect-4/5 w-full flex-col overflow-hidden rounded-lg bg-dark lg:aspect-21/9"
+          className="relative m-0 flex w-full flex-col overflow-hidden rounded-lg bg-dark sm:aspect-4/5 lg:aspect-21/9"
         >
           <Settle
             className="absolute inset-0 h-full w-full bg-cover bg-center"
@@ -23,20 +23,24 @@ export function DayOnTheFloor() {
             aria-hidden="true"
             className="photo-scrim pointer-events-none absolute inset-0"
           />
-          <figcaption className="relative mt-auto w-full p-6 lg:p-14">
-            <Eyebrow tone="onDark">A day on the floor</Eyebrow>
+          {/* Below sm the figure is content-sized; pt-40 keeps photo visible above the text. */}
+          <figcaption className="relative mt-auto w-full p-6 pt-40 sm:pt-6 lg:p-14">
+            <Eyebrow tone="onDark">At shift change</Eyebrow>
             <h2
               id="day-h"
               className="m-0 max-w-[20ch] font-display text-[32px] leading-[1.05] font-normal tracking-[-0.02em] text-balance text-white lg:text-[48px]"
             >
-              0645. The shift is <span className="text-white/70">changing.</span>
+              <span className="text-white/70">0645.</span> One shift ends. Another takes over.
             </h2>
             <p className="mt-6 max-w-[60ch] text-white/85">
-              At 0645 a nurse doesn&rsquo;t need software telling her what to think. She needs to
-              know what changed overnight, who&rsquo;s watching what, and what happens if the
-              patient in room 4 does the thing he did at 0200. She needs it fast, structured so
-              nothing falls through, and confirmed, so the next shift isn&rsquo;t running on memory
-              and hope.
+              In minutes, responsibility changes hands.
+            </p>
+            <p className="mt-4 max-w-[60ch] text-white/85">
+              The incoming nurse has to understand the last 12 hours quickly, without digging
+              through the chart, piecing together notes, or relying on memory.
+            </p>
+            <p className="mt-4 max-w-[60ch] font-medium text-white">
+              That&rsquo;s where continuity can break.
             </p>
           </figcaption>
         </Reveal>
