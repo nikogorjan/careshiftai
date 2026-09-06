@@ -2,7 +2,7 @@ import { Reveal } from "@/components/anim";
 import { Eyebrow } from "@/components/Eyebrow";
 import { SectionHeading } from "@/components/SectionHeading";
 
-const PHOTO = "https://bloom42-media.s3.eu-central-1.amazonaws.com/nurse-report.webp";
+const PHOTO = "/nurse-driving.webp";
 
 /**
  * Staircase offsets: card 1 pushed down the most, card 5 flush, so the top
@@ -69,7 +69,7 @@ export function Reality() {
               </SectionHeading>
             </Reveal>
           </div>
-          <Reveal delay={100} className="lg:col-span-7">
+          <Reveal delay={100} className="rounded-lg bg-tint p-6 sm:p-8 lg:col-span-7">
             <p className="m-0 max-w-[36ch] font-display text-[22px] leading-[1.35] font-normal tracking-[-0.015em] text-ink">
               Orders change. Patients decline. Families raise concerns. Tasks remain unfinished.
               Priorities shift.
@@ -79,10 +79,10 @@ export function Reality() {
               across the EHR, handwritten notes, verbal conversations, and memory.
             </p>
             <div
-              className="mt-10 aspect-16/10 w-full rounded-lg bg-cover bg-center"
+              className="mt-8 aspect-16/10 w-full rounded-lg bg-cover bg-center"
               style={{ backgroundImage: `url("${PHOTO}")` }}
               role="img"
-              aria-label="A nurse giving report at shift change"
+              aria-label="A nurse in scrubs driving to a shift"
             />
           </Reveal>
         </div>
