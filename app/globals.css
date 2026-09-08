@@ -10,7 +10,7 @@
   /* surfaces */
   --color-tint: #f1f6f8; /* very light cool tint, secondary surfaces */
   --color-line: #d9e2ea; /* all 1px borders and dividers */
-  --color-dark: #002058; /* the one dark section surface */
+  --color-dark: #0b1f24; /* deep teal-black, the footer surface (kept distinct from navy ink) */
 
   /* text */
   --color-ink: #002058; /* headings, primary text, primary button */
