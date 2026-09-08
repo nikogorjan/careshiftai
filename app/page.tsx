@@ -1,6 +1,7 @@
 import { BuiltForContinuity } from "@/components/BuiltForContinuity";
 import { ClosingCta } from "@/components/ClosingCta";
 import { DayOnTheFloor } from "@/components/DayOnTheFloor";
+import { HandoffGap } from "@/components/HandoffGap";
 import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
 import { InTheNews } from "@/components/InTheNews";
@@ -16,6 +17,7 @@ export default function Home() {
     <main>
       <Hero />
       <Reality />
+      <HandoffGap />
       <DayOnTheFloor />
       <WhyItMatters />
       <BuiltForContinuity />

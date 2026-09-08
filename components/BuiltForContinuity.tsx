@@ -11,7 +11,7 @@ export function BuiltForContinuity() {
     <section
       id="continuity"
       aria-labelledby="continuity-h"
-      className="mt-(--section-y) bg-tint pt-(--section-y) pb-[calc(var(--section-y)/2)]"
+      className="bg-tint pt-(--section-y) pb-[calc(var(--section-y)/2)]"
     >
       <div className="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
         <Reveal className="lg:col-span-5">

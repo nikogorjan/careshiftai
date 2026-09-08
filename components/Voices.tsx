@@ -57,7 +57,7 @@ export function Voices() {
   useEffect(() => () => window.clearTimeout(settleTimer.current), []);
 
   return (
-    <section id="voices" aria-labelledby="voices-h" className="section-y overflow-x-clip bg-white">
+    <section id="voices" aria-labelledby="voices-h" className="section-y overflow-x-clip bg-tint">
       {/* Header row: text left, the only carousel controls right. */}
       <Reveal className="wrap flex items-end justify-between gap-8">
         <div>
@@ -125,7 +125,7 @@ export function Voices() {
               key={v.name}
               className={cn(
                 "m-0 flex min-h-105 w-[85vw] flex-none snap-start flex-col rounded-lg p-7 transition-colors duration-300 sm:w-95 sm:p-10 lg:w-120",
-                dark ? "bg-ink" : "bg-[#e4f4f5]",
+                dark ? "bg-ink" : "bg-[#dbf0f2]",
               )}
             >
               <p

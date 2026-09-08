@@ -104,9 +104,9 @@
 @utility photo-scrim {
   background-image: linear-gradient(
     to top right,
-    rgba(0, 16, 44, 0.8) 0%,
-    rgba(0, 16, 44, 0.48) 55%,
-    rgba(0, 16, 44, 0) 88%
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.48) 55%,
+    rgba(0, 0, 0, 0) 88%
   );
 }
 

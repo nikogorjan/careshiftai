@@ -3,7 +3,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Faq, type FaqItem } from "@/components/Faq";
 
 /* Light-teal ramp, one shade deeper per card, same family as the Reality staircase. */
-const SHADE = ["bg-[#f1fafa]", "bg-[#e4f4f5]", "bg-[#d2edef]"];
+const SHADE = ["bg-[#e4f4f5]", "bg-[#dbf0f2]", "bg-[#d2edef]"];
 
 const BELIEFS = [
   {
@@ -45,7 +45,7 @@ const FAQ: FaqItem[] = [
 
 export function Mission() {
   return (
-    <section id="mission" aria-labelledby="mission-h" className="bg-white section-y">
+    <section id="mission" aria-labelledby="mission-h" className="bg-tint section-y">
       <div className="wrap">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Left column: sticky heading. */}

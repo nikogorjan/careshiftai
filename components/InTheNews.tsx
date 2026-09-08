@@ -13,7 +13,7 @@ export function InTheNews() {
     <section
       id="news"
       aria-labelledby="news-h"
-      className="bg-white pt-(--section-y) pb-[calc(var(--section-y)*2)]"
+      className="section-y bg-white"
     >
       <div className="wrap grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-x-12">
         <Reveal className="lg:col-span-5">

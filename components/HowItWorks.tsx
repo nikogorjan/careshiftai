@@ -16,7 +16,7 @@ export function HowItWorks() {
     <section
       id="how"
       aria-labelledby="how-h"
-      className="mb-(--section-y) bg-tint pt-[calc(var(--section-y)/2)] pb-(--section-y)"
+      className="bg-tint pt-[calc(var(--section-y)/2)] pb-(--section-y)"
     >
       <div className="wrap grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-x-12">
         <div className="lg:col-span-5">

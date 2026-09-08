@@ -5,7 +5,7 @@ const PHOTO = "/nurses-tablet.webp";
 
 export function DayOnTheFloor() {
   return (
-    <section aria-labelledby="day-h" className="section-y bg-white">
+    <section aria-labelledby="day-h" className="section-y bg-tint">
       <div className="wrap">
         <Reveal
           as="figure"
