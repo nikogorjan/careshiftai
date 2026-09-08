@@ -3,7 +3,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Faq, type FaqItem } from "@/components/Faq";
 
 /* Light-teal ramp, one shade deeper per card, same family as the Reality staircase. */
-const SHADE = ["bg-[#f3f9f9]", "bg-[#e4f2f3]", "bg-[#d2eaec]"];
+const SHADE = ["bg-[#f1fafa]", "bg-[#e4f4f5]", "bg-[#d2edef]"];
 
 const BELIEFS = [
   {

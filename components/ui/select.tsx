@@ -70,7 +70,7 @@ function SelectItem({
   return (
     <SelectPrimitive.Item
       className={cn(
-        "flex h-11 cursor-pointer items-center justify-between px-3.5 text-[15px] text-ink outline-none select-none data-[highlighted]:bg-[#e4f2f3]",
+        "flex h-11 cursor-pointer items-center justify-between px-3.5 text-[15px] text-ink outline-none select-none data-[highlighted]:bg-[#e4f4f5]",
         className,
       )}
       {...props}

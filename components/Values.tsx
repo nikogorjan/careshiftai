@@ -64,7 +64,7 @@ export function Values() {
                 as="li"
                 key={p.title}
                 delay={i * 80}
-                className={cn("m-0 flex flex-col rounded-lg p-10", dark ? "bg-ink" : "bg-[#e4f2f3]")}
+                className={cn("m-0 flex flex-col rounded-lg p-10", dark ? "bg-ink" : "bg-[#e4f4f5]")}
               >
                 <p
                   className={cn(

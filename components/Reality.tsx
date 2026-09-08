@@ -18,11 +18,11 @@ const STEP = [
 
 /* Premium ramp: each card one shade deeper in the light-teal family. */
 const SHADE = [
-  "bg-[#f3f9f9]",
-  "bg-[#ecf5f6]",
-  "bg-[#e4f2f3]",
-  "bg-[#dbeef0]",
-  "bg-[#d2eaec]",
+  "bg-[#f1fafa]",
+  "bg-[#ebf7f8]",
+  "bg-[#e4f4f5]",
+  "bg-[#dbf0f2]",
+  "bg-[#d2edef]",
 ];
 
 const QUOTES = [

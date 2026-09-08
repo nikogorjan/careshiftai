@@ -8,18 +8,18 @@
    ============================================================ */
 @theme {
   /* surfaces */
-  --color-tint: #f3f7f7; /* very light cool tint, secondary surfaces */
-  --color-line: #dce4e5; /* all 1px borders and dividers */
-  --color-dark: #0b1f24; /* the one dark section surface */
+  --color-tint: #f1f6f8; /* very light cool tint, secondary surfaces */
+  --color-line: #d9e2ea; /* all 1px borders and dividers */
+  --color-dark: #002058; /* the one dark section surface */
 
   /* text */
-  --color-ink: #0b1f24; /* headings, primary text, primary button */
-  --color-ink-2: #3d4f53; /* body text */
-  --color-ink-3: #7a8b8e; /* captions, footnotes, muted labels */
+  --color-ink: #002058; /* headings, primary text, primary button */
+  --color-ink-2: #3a4a6b; /* body text */
+  --color-ink-3: #66718c; /* captions, footnotes, muted labels */
 
   /* accent, used sparingly */
-  --color-accent: #1a9ba8; /* eyebrows, dots, icons, focus rings */
-  --color-accent-strong: #0f7d88; /* accent hover state */
+  --color-accent: #1ca4b0; /* eyebrows, dots, icons, focus rings */
+  --color-accent-strong: #147c86; /* accent hover state */
 
   /* breakpoints: 640 (sm, default), 1024 (lg, default), 1280 (xl, default) */
 }
@@ -104,9 +104,9 @@
 @utility photo-scrim {
   background-image: linear-gradient(
     to top right,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.48) 55%,
-    rgba(0, 0, 0, 0) 88%
+    rgba(0, 16, 44, 0.8) 0%,
+    rgba(0, 16, 44, 0.48) 55%,
+    rgba(0, 16, 44, 0) 88%
   );
 }
 

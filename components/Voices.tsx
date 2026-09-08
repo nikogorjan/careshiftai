@@ -125,7 +125,7 @@ export function Voices() {
               key={v.name}
               className={cn(
                 "m-0 flex min-h-105 w-[85vw] flex-none snap-start flex-col rounded-lg p-7 transition-colors duration-300 sm:w-95 sm:p-10 lg:w-120",
-                dark ? "bg-ink" : "bg-[#e4f2f3]",
+                dark ? "bg-ink" : "bg-[#e4f4f5]",
               )}
             >
               <p

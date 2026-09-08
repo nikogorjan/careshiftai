@@ -17,7 +17,7 @@ const ROLES = ["Nurse", "Physician", "Other"];
 const field =
   "h-14 w-full rounded-none border-b border-white/35 bg-transparent px-0 text-lg text-white " +
   "placeholder:text-white/45 focus:border-b-2 focus:border-white focus:outline-none " +
-  "[&:-webkit-autofill]:[box-shadow:inset_0_0_0_1000px_#0f7d88] [&:-webkit-autofill]:[-webkit-text-fill-color:#fff]";
+  "[&:-webkit-autofill]:[box-shadow:inset_0_0_0_1000px_#147c86] [&:-webkit-autofill]:[-webkit-text-fill-color:#fff]";
 
 const label = "flex items-baseline gap-1 text-[13px] tracking-[0.06em] text-white/70 uppercase";
 
