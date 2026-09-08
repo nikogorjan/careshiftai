@@ -80,7 +80,7 @@ export default function PrivacyPage() {
         the site work:
       </P>
       <UL>
-        <li>form delivery: Web3Forms, which forwards your submission to our email inbox</li>
+        <li>form handling: HubSpot, our customer relationship manager, which receives your submission and stores it in our contact records</li>
         <li>hosting: Vercel, which serves the website and keeps standard server logs</li>
         <li>analytics: none at this time</li>
       </UL>

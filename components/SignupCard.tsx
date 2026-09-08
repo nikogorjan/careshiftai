@@ -24,21 +24,18 @@ const label = "flex items-baseline gap-1 text-[13px] tracking-[0.06em] text-whit
 export const HINT = "We'll only use your email to share mission updates. No spam, ever.";
 
 /*
- * Web3Forms access key, provided per environment. Submissions post to the
- * Web3Forms API, which emails them to the address the key was created for.
- * While unset the form falls back to demo behavior: it validates and shows
- * the confirmation without sending anywhere.
+ * Submissions go to our own route, which forwards them to HubSpot. The portal
+ * and form ids stay server side, so nothing about the CRM reaches the browser.
  */
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-const ENDPOINT = "https://api.web3forms.com/submit";
+const ENDPOINT = "/api/signup";
 
 function validEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
 /**
- * Editorial underline form on the teal band. No backend yet: a valid
- * submission fades the form out and echoes the hint line in its place.
+ * Editorial underline form on the teal band. A valid submission fades the form
+ * out and echoes the hint line in its place.
  */
 export function SignupForm() {
   const [firstName, setFirstName] = useState("");
@@ -58,23 +55,19 @@ export function SignupForm() {
     }
     setError("");
     setSendError(false);
-    if (!ACCESS_KEY) {
-      setDone(true);
-      return;
-    }
     setSending(true);
     try {
       const res = await fetch(ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: "New CareShift signup",
           firstName,
           lastName,
           email,
           role: role ?? "",
           story,
+          pageUri: window.location.href,
+          pageName: document.title,
         }),
       });
       if (res.ok) setDone(true);

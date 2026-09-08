@@ -74,8 +74,9 @@ images, so no `next/image` remote-pattern config is needed.
 
 ## Notes
 
-- The signup form posts to Web3Forms when `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
-  is set (see `.env.example`); while unset it validates and shows the
-  confirmation without sending anywhere.
+- The signup form posts to `/api/signup`, which forwards the submission to
+  the HubSpot Forms API using `HUBSPOT_PORTAL_ID` and `HUBSPOT_FORM_ID` (see
+  `.env.example`). Both are server side only. While either is unset the route
+  logs the reason and returns an error, and the form shows its failure message.
 - `prefers-reduced-motion` is honoured: transitions collapse, the voice
   carousel switches without fading, and the hero video pauses.
