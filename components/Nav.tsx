@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Btn } from "@/components/Btn";
 import { cn } from "@/lib/cn";
-import logo from "@/public/careshift-logo.png";
+import logo from "@/public/careshift-lockup.png";
 
 const LINKS = [
   { href: "/#reality", label: "The problem" },
@@ -21,9 +21,9 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white">
       <div className="wrap flex h-18 items-center justify-between">
-        <Link href="/" aria-label="CareShift home" className="flex items-center gap-3 no-underline">
-          <Image src={logo} alt="CareShift logo" className="h-8 w-auto" priority />
-          <b className="font-display text-xl font-medium tracking-[-0.02em] text-ink">CareShift</b>
+        <Link href="/" aria-label="CareShift home" className="flex items-center no-underline">
+          {/* Full lockup: the wordmark is part of the image, so no text beside it. */}
+          <Image src={logo} alt="" className="h-8 w-auto" priority />
         </Link>
 
         {/* Links sit on the right, directly next to the call to action. */}

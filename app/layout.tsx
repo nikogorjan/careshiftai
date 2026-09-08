@@ -20,7 +20,6 @@ const instrument = Instrument_Sans({
 export const metadata: Metadata = {
   title: "CareShift | Fixing the nursing handoff",
   description: "A mission to fix the nursing handoff, built with nurses, not at them.",
-  icons: { icon: "/careshift-mark.webp" },
   openGraph: {
     title: "CareShift | Fixing the nursing handoff",
     description: "A mission to fix the nursing handoff, built with nurses, not at them.",
